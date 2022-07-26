@@ -21,6 +21,15 @@ app.get('/api/movies', (req, res) => {
         return res.json(result)
     })
 })
+// ----------------------------------Returns JSON of all reviews in reviews table-------------------------------
+app.get('/api/reviews', (req, res) => {
+    db.query('SELECT * FROM reviews', function(err, result) {
+        if (err) {
+            console.log(err)
+        }
+        return res.json(result)
+    })
+})
 // ----------------------------------Add  movie to movies table------------------------------------
 app.post('/api/add-movie', (req, resp) => {
     const { movie_name } = req.body;
@@ -28,7 +37,7 @@ app.post('/api/add-movie', (req, resp) => {
         if (err) {
             console.log(err)
         }
-        console.log('movie added')
+        return console.log('movie added')
     })
 
 })
@@ -40,7 +49,7 @@ app.put('/api/update-review', (req, res) => {
         if(err){
             console.log(err)
         }
-        console.log('Review Added', result)
+        return console.log('Review Added', result)
     })
 })
 // ----------------------------------Removes  movie from movies table------------------------------------
@@ -50,7 +59,7 @@ app.delete('/api/movies/:id', (req,res) => {
         if(err){
             console.log(err)
         }
-        console.log(`Movie with id ${delMovie} was deleted from the movies table`);
+        return console.log(`Movie with id ${delMovie} was deleted from the movies table`);
     })
 })
 
