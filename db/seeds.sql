@@ -5,3 +5,6 @@ VALUES  ('The Shawshand Redemption'),
         ('Thor'),
         ('Iron Man'),
         ('Guardians of the Galaxy');
+
+INSERT INTO reviews (movie_id, review)
+VALUES (1, 'very bad');
